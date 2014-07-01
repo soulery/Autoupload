@@ -1,4 +1,3 @@
-from smb.SMBConnection import SMBConnection
 import shutil
 import subprocess
 import time
@@ -11,7 +10,6 @@ import urllib
 import urllib2
 import re
 import thread
-import shutil
 from BeautifulSoup import BeautifulSoup as bs
 
 def run_windows_command(cmd):
@@ -280,7 +278,7 @@ def app_build_change(link,app):
     elif app == "web":
         item = "worxweb_ios"
     cf = ConfigParser.ConfigParser()
-    cf.read("C:\\test\\other\\config.ini")
+    cf.read("config.ini")
     build_name = cf.get("build", item)
     if build_name == link:
         return False
@@ -290,7 +288,7 @@ def app_build_change(link,app):
 
 def config_parser(app):
     cf = ConfigParser.ConfigParser()
-    cf.read("C:\\test\\other\\config.ini")
+    cf.read("config.ini")
     worxmail = cf.get("build", "worxmail_ios")
     cf.set("build", "worxweb_ios", "zhaowei")
     cf.write(open("config.ini", "w"))
@@ -319,7 +317,7 @@ def main():
 
 if __name__ == '__main__':
 
-    os.chdir("C:\\test\\other")
+    os.chdir("C:\\upload\\Autoupload")
     main()
 
 
